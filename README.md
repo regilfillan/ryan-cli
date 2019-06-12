@@ -1,10 +1,6 @@
-TESTING COMMITS
-
 # Ryan::Cli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ryan/cli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Description: This CLI interacts with the user to determine which branch of the Boston Public Library system they are interested in knowing more about.  It is a directory.  Once they select a branch location from the list of options, they can choose to know various other information about that specific location.
 
 ## Installation
 
