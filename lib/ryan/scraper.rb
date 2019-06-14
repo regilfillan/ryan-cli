@@ -13,7 +13,10 @@ class Scraper
        location_address = location.css(".location-address").text
        location_phone_number = location.css(".location-phone").text 
        location_email = location.css(".location_email")
-       
+       locations << {address: location_adress, phone_number: location_phone_number, email: location_email, location_link: location_overview_link}
+     end
+   end
+   libraries
   end
 
   def self.scrape_location_page(profile_slug)
