@@ -25,7 +25,14 @@ class Scraper
     nav_menu = location_info_page.css(".location-subnav-list").children.css("a").map {|link| link.attribute("href").value}
     nav_menu.each do |subnav|
       if subnav.include?("about")
-        
+        location[:about]= link
+      elsif subnav.include?("projects")
+        location[:projects]= link 
+      else subnav.include?("locations")
+        location[:location_hours]= link
+      end
+    end
+    location
   end
   
 end
