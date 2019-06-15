@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# require_relative "../lib/ryan/cli.rb"
+# require_relative '../config/environment'
 require_relative "../lib/ryan/scraper.rb"
 
 
