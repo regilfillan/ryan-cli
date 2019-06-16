@@ -4,17 +4,11 @@ require 'pry'
 
 class Scraper
 
-  def self.scrape_directory_page(directory_url)
-   directory_page= Nokogiri::HTML(open(directory_url))
+  def self.scrape_chart_page(chart_url)
+   charts_page= Nokogiri::HTML(open(chart_url))
    binding.pry
-   libraries = []
-   directory_page.css("div.locations-list").each do |library|
-     library.css(".location-information-row a").each do |location|
-       location_overview_link = "#{location.attr('href')}"
-       location_address = location.css(".location-address").text
-       location_phone_number = location.css(".location-phone").text 
-       location_email = location.css(".location_email")
-       locations << {address: location_adress, phone_number: location_phone_number, email: location_email, location_link: location_overview_link}
+   podcasts = []
+   charts_page.css("div.locations-list").each 
      end
    end
    libraries
