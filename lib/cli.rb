@@ -15,7 +15,7 @@
   
   def salutation
     puts "\n\n"
-    puts "Alrighty, have a nice day!"
+    puts "Alrighty, have a nice day! To restart enter 'bin/run.rb'."
     puts "\n\n"
   end
   
@@ -37,23 +37,23 @@
         if user_input == "exit" || user_input.include?("n")
           salutation
         elsif user_input.include?("y")
-          self.list_top_podcasts
-          self.choose_podcast
-          self.podcast_detail_loop
+          list_top_podcasts
+          choose_podcast
+          podcast_detail_loop
         else
-          
+          oops
         end
       end
   end 
   
   def podcast_detail_loop
     user_input_again = gets.strip.to_i
-            if user_input_again.is_a? Integer && (1 < user_input_again <= 20)
-              self.display_podcast_details
-            else
-              puts "Oops! Please input a number between 1 and 20."
-              self.choose_podcast
-            end
+      if user_input_again.is_a? Integer && (1 < user_input_again <= 20)
+        self.display_podcast_details
+      else
+        puts "Oops! Please input a number between 1 and 20."
+        self.choose_podcast
+      end
   end
 
   def list_top_podcasts
@@ -64,10 +64,16 @@
 
   def choose_podcast
     puts "Select a number from the list to learn more about the corresponding Podcast!"
-    index = gets.strip.to_i-1
-    podcast= Podcast.all[index]
-    PodbayScraper.scrape_details(podcast)
-    self.display_podcast_details(podcast)
+    user_input= gets.strip.to_i
+      if (1 < user_input <= 20)
+        index = user_input-1
+        podcast= Podcast.all[index]
+        PodbayScraper.scrape_details(podcast)
+        self.display_podcast_details(podcast)
+      else 
+        oops
+        self.choose_podcast
+      end
   end
 
   def display_podcast_details(podcast)
