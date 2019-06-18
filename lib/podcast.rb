@@ -1,6 +1,6 @@
 class Podcast
 
-  attr_accessor :title, :network_or_artist, :where_to_listen
+  attr_accessor :title, :url
 
   @@all = []
  
