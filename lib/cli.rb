@@ -26,6 +26,7 @@
   end
 
   def option_menu
+    puts "----"
     puts "Would you like to see today's Top 20 according to Podbay.fm? (Y/N)"
     puts "\n\n"
     input = gets.strip.downcase
@@ -39,37 +40,32 @@
         elsif user_input.include?("y")
           list_top_podcasts
           choose_podcast
-          podcast_detail_loop
         else
           oops
+          option_menu
         end
       end
   end 
-  
-  def podcast_detail_loop
-    user_input_again = gets.strip.to_i
-      if user_input_again.is_a? Integer && (1 < user_input_again <= 20)
-        self.display_podcast_details
-      else
-        puts "Oops! Please input a number between 1 and 20."
-        self.choose_podcast
-      end
-  end
 
   def list_top_podcasts
+    puts "----"
     puts "Today's Top 20:\n\n"
     Podcast.all.each_with_index {|pod, i| puts "#{i+1}. #{pod.title}"}
     puts "\n\n"
+    puts "----"
   end
 
   def choose_podcast
-    puts "Select a number from the list to learn more about the corresponding Podcast!"
+    puts "\n\n"
+    puts "Select a number from the list to learn more about the corresponding Podcast or enter 'exit' to return to menu."
     user_input= gets.strip.to_i
       if (1 < user_input <= 20)
         index = user_input-1
         podcast= Podcast.all[index]
         PodbayScraper.scrape_details(podcast)
         self.display_podcast_details(podcast)
+      elsif user_input == "exit"
+        option_menu
       else 
         oops
         self.choose_podcast
@@ -78,11 +74,20 @@
 
   def display_podcast_details(podcast)
     puts "\n\n"
-    puts "Copy and paste the following to your URL to see the additional details!"
+    puts "Copy and paste the following to your URL to see the additional details:"
+    puts "\n"
     puts "Open their website: '#{podcast.open_website}'!"
     puts "Read their reviews: '#{podcast.read_reviews}'!"
     puts "Check out their existing episodes: '#{podcast.episode_list}'!"
-    puts "\n\n"
+    puts "\n"
+    puts "This is the final option of this podcast. If you'd like to return to the menu, please enter 'exit'."
+    user_input= gets.strip.downcase
+      if user_input == "exit"
+        salutation
+      else
+        oops
+        option_menu
+      end
   end
 
 end 
