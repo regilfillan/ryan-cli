@@ -2,6 +2,7 @@ class CommandLineInterface
   
   def run 
     welcome
+    StitcherScraper.scrape_titles
     
   end
   
@@ -9,7 +10,7 @@ class CommandLineInterface
     puts "Welcome Message"
   end
   
-  def top_podcasts
+  def list_top_podcasts
     
   end
   
