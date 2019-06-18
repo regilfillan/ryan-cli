@@ -32,26 +32,28 @@
   end
   
   def menu_loop
-        loop do
+    loop do
       user_input = option_menu
         if user_input == "exit" || user_input.include?("n")
-          return
-        else
+          salutation
+        elsif user_input.include?("y")
           self.list_top_podcasts
           self.choose_podcast
-          user_input_again = gets.strip.to_i
+          self.podcast_detail_loop
+        else
+          
+        end
+      end
+  end 
+  
+  def podcast_detail_loop
+    user_input_again = gets.strip.to_i
             if user_input_again.is_a? Integer && (1 < user_input_again <= 20)
               self.display_podcast_details
             else
               puts "Oops! Please input a number between 1 and 20."
               self.choose_podcast
             end
-        end
-      end
-  end 
-  
-  def podcast_detail_loop
-    
   end
 
   def list_top_podcasts
