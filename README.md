@@ -20,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First, run bundle install.
+
+Then, to run the program, enter 'bin/run.rb' into the terminal.
+
+Follow the instructions for the app that will continue to show in your terminal.
 
 ## Development
 
