@@ -26,6 +26,18 @@
     puts "Welcome to the Top Twenty Podcast App!"
     puts "\n\n"
   end
+  
+  def salutation
+    puts "\n\n"
+    puts "Alrighty, have a nice day!"
+    puts "\n\n"
+  end
+  
+  def oops 
+    puts "\n\n"
+    puts "I'm sorry, I didn't understand that command. Let's try again."
+    puts "\n\n"
+  end
 
   def option_menu
     puts "Would you like to see today's Top 20 according to Podbay.fm? (Y/N)"
