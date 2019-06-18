@@ -16,12 +16,16 @@ class PodbayScraper
       url= li.css('a')[0].attribute('href').value
       Podcast.new(title, url)
     end
-    binding.pry
     Podcast.all
   end
   
-  def self.scrape_details
-    
+  def self.scrape_details(podcast)
+    url = podcast.url 
+    html = Nokogiri::HTML(open(url))
+    details= html.css('div.well.sidebar-nav a')
+    podcast.open_website= details[0].attribute('href').value
+    podcast.read_reviews= details[2].attribute('href').value
+    podcast.episode_list= details[5].attribute('href').value
   end
  
 end
