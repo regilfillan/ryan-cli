@@ -3,9 +3,9 @@ require 'nokogiri'
 require 'pry'
 
 class PodbayScraper
-  
+
   BASE_URL= 'http://podbay.fm/browse/top'
-  
+
   def self.scrape_podcasts
     page= Nokogiri::HTML(open(BASE_URL))
     podcasts = []
@@ -18,16 +18,15 @@ class PodbayScraper
     end
     Podcast.all
   end
-  
+
   def self.scrape_details(podcast)
-    url = podcast.url 
-    html = Nokogiri::HTML(open(url))
-    #haven't been able to test the below due to errno:enoent error
+    url = podcast.url
+    html = Nokogiri::HTML(open("http://podbay.fm" + url))
     details= html.css('div.well.sidebar-nav a')
     podcast.open_website= details[0].attribute('href').value
     podcast.read_reviews= details[2].attribute('href').value
     podcast.episode_list= details[5].attribute('href').value
     #question for micah
   end
- 
+
 end
