@@ -1,26 +1,15 @@
-require_relative "../lib/scraper.rb"
-require_relative "../lib/locations.rb"
-require "nokogiri"
-require "colorize"
-
 class CommandLineInterface
-  BASE_PATH = "bpl.bibliocommons.com/locations/list/"
   
   def run 
-    make_locations
-    add_attributes_to_locations
-    display_locations
-  end
-  
-  def make_locations
+    welcome
     
   end
   
-  def add_attributes_to_locations
-    
+  def welcome
+    puts "Welcome Message"
   end
   
-  def display_locations
+  def top_podcasts
     
   end
   
