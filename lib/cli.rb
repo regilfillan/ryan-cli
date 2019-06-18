@@ -2,7 +2,7 @@ class CommandLineInterface
   
   def run 
     welcome
-    PodbayScraper.scrape_titles
+    PodbayScraper.scrape_podcasts
     
   end
   
