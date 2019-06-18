@@ -4,7 +4,6 @@
     welcome
     PodbayScraper.scrape_podcasts
     option_menu
-    menu_loop
   end
 
   def welcome
@@ -30,16 +29,17 @@
     puts "Would you like to see today's Top 20 according to Podbay.fm? (Y/N)"
     puts "\n\n"
     input = gets.strip.downcase
+    menu_loop
   end
   
-  def menu_loop
+  def self.menu_loop
     loop do
       user_input = option_menu
         if user_input == "exit" || user_input.include?("n")
           salutation
         elsif user_input.include?("y")
-          list_top_podcasts
-          choose_podcast
+          self.list_top_podcasts
+          self.choose_podcast
         else
           oops
           option_menu
