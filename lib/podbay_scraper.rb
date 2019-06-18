@@ -12,7 +12,6 @@ class PodbayScraper
     podcast_lis.each do |li|
       title= li.css('div.caption h4').text
       artist_or_network= li.css('div.caption h6').text
-      data_url= li.css('a[href]').each {|element| element['href']}
       binding.pry
     end
   end
