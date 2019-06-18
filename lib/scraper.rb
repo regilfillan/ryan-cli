@@ -5,7 +5,7 @@ require 'pry'
 class Scraper
 
   def get_page
-    Nokogiri::HTML(open("https://www.podcastinsights.com/top-us-podcasts/"))
+    Nokogiri::HTML(open("https://www.stitcher.com/stitcher-list/all-podcasts-top-shows"))
   binding.pry
   end
   
@@ -16,7 +16,7 @@ class Scraper
   def make_podcasts
     self.get_podcasts.each do |pod|
       podcast = Podcast.new
-      podcast.title = yyy.css(“xxxxx").text
+      podcast.title = yyy.css(“xxx").text
       podcast.network_or_artist = yyy.css(“qqq”).text
       podcast.where_to_listen = yyy.css(“zzz”).text
     end

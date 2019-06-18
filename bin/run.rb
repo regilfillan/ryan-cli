@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
-# require_relative '../config/environment'
-require_relative "../lib/scraper.rb"
+require_relative '../config/environment'
 
-
-Scraper.get_page
+app = CommandLineInterface.new 
+app.run
