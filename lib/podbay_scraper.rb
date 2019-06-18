@@ -8,7 +8,7 @@ class PodbayScraper
   
   def self.scrape_podcasts
     page= Nokogiri::HTML(open(BASE_URL))
-    podcast_lis= page.css('ul.thumbnails li.span3 h4')
+    podcast_lis= page.css('div.row ul.thumbnails li.span3 h4')
       
     binding.pry
   # titles = table.css('tr td span a')
