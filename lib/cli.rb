@@ -13,8 +13,7 @@ class CommandLineInterface
   end
   
   def make_locations
-    locations_array = Scraper.scrape_directory_page(BASE_PATH + "index.html")
-    Location.create_from_collection(locations_array)
+    
   end
   
   def add_attributes_to_locations
