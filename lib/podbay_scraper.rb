@@ -20,7 +20,7 @@ class PodbayScraper
     Podcast.all
   end
   
-  def self.scrape_description
+  def self.scrape_details
     
   end
  
