@@ -7,21 +7,19 @@
   end
 
   def welcome
-    puts "\n\n"
+    puts "\n"
     puts "Welcome to the Top Twenty Podcast App!"
-    puts "\n\n"
+    puts "\n"
   end
   
   def salutation
     puts "\n\n"
-    puts "Alrighty, have a nice day! To restart enter 'bin/run.rb'."
+    puts "Alrighty, have a nice day!"
     puts "\n\n"
   end
   
   def oops 
-    puts "\n\n"
     puts "I'm sorry, I didn't understand that command. Let's try again."
-    puts "\n\n"
   end
 
   def menu_loop
@@ -35,7 +33,7 @@
           self.choose_podcast
         else
           oops
-          option_menu
+          run
         end
       end
   end 
@@ -59,16 +57,16 @@
     puts "\n\n"
     puts "Select a number from the list to learn more about the corresponding Podcast or enter 'exit' to return to menu."
     user_input= gets.strip.to_i
-      if (1 < user_input <= 20)
+      if user_input >= 1 && user_input <= 20
         index = user_input-1
         podcast= Podcast.all[index]
         PodbayScraper.scrape_details(podcast)
         self.display_podcast_details(podcast)
       elsif user_input == "exit"
-        option_menu
+        run
       else 
         oops
-        self.choose_podcast
+        run
       end
   end
 
@@ -86,7 +84,7 @@
         salutation
       else
         oops
-        option_menu
+        run
       end
   end
 
