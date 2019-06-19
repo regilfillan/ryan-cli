@@ -4,6 +4,7 @@
     welcome
     PodbayScraper.scrape_podcasts
     option_menu
+    menu_loop
   end
 
   def welcome
@@ -24,14 +25,6 @@
     puts "\n\n"
   end
 
-  def option_menu
-    puts "----"
-    puts "Would you like to see today's Top 20 according to Podbay.fm? (Y/N)"
-    puts "\n\n"
-    input = gets.strip.downcase
-    menu_loop
-  end
-  
   def self.menu_loop
     loop do
       user_input = option_menu
@@ -46,6 +39,13 @@
         end
       end
   end 
+
+  def option_menu
+    puts "----"
+    puts "Would you like to see today's Top 20 according to Podbay.fm? (Y/N)"
+    puts "\n\n"
+    input = gets.strip.downcase
+  end
 
   def list_top_podcasts
     puts "----"
