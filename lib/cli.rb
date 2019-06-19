@@ -3,7 +3,6 @@
   def run
     welcome
     PodbayScraper.scrape_podcasts
-    option_menu
     menu_loop
   end
 
@@ -25,11 +24,12 @@
     puts "\n\n"
   end
 
-  def self.menu_loop
+  def menu_loop
     loop do
       user_input = option_menu
         if user_input == "exit" || user_input.include?("n")
           salutation
+          break
         elsif user_input.include?("y")
           self.list_top_podcasts
           self.choose_podcast
