@@ -40,7 +40,7 @@
 
   def option_menu
     puts "----"
-    puts "Would you like to see today's Top 20 according to Podbay.fm? (Y/N)"
+    puts "Would you like to see today's real-time Top 20 podcasts according to iTunes charts? (Y/N)"
     puts "\n\n"
     input = gets.strip.downcase
   end
