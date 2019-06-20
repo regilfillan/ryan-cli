@@ -1,6 +1,6 @@
 # Ryan::Cli
 
-Description: This CLI interacts with the user to determine which branch of the Boston Public Library system they are interested in knowing more about.  It is a directory.  Once they select a branch location from the list of options, they can choose to know various other information about that specific location.
+Description: This CLI interacts with the user to show them a list of the current top 20 podcasts according to the live iTunes charts, as reported by Podbay.fm.  If the user so chooses, they can then choose to see more information about a podcast from the list.  This will then bring them to a list of URLs that can show them the podcast's website, their reviews on Podbay.fm and a list of their available episodes.
 
 ## Installation
 
