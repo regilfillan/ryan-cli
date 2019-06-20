@@ -23,10 +23,10 @@ class PodbayScraper
     url = podcast.url
     html = Nokogiri::HTML(open("http://podbay.fm" + url))
     details= html.css('div.well.sidebar-nav a')
-    podcast.open_website= details[0].attribute('href').value
+    podcast.open_website= details[5].attribute('href').value
     podcast.read_reviews= details[2].attribute('href').value
-    podcast.episode_list= details[5].attribute('href').value
-    #question for micah
+    podcast.episode_list= details[0].attribute('href').value
+    binding.pry
   end
 
 end
