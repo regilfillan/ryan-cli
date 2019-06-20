@@ -77,14 +77,19 @@
   end
 
   def display_podcast_details(podcast)
+    puts "----"
     puts "\n\n"
     puts "Copy and paste the following to your URL to see the additional details regarding your selected podcast:"
     puts "\n"
-    puts "Open their website: '#{podcast.open_website}'!"
-    puts "Read their reviews: '#{podcast.read_reviews}'!"
-    puts "Check out their existing episodes: '#{podcast.episode_list}'!"
+    puts "-Open their website: '#{podcast.open_website}'!"
     puts "\n"
-    puts "This is the final option of this podcast. If you'd like to return to the menu, please enter 'exit'."
+    puts "-Read their reviews: '#{podcast.read_reviews}'!"
+    puts "\n"
+    puts "-Check out their existing episodes: '#{podcast.episode_list}'!"
+    puts "\n"
+    puts "-This is the final option of this podcast. If you'd like to return to the menu, please enter 'exit'."
+    puts "\n"
+    puts "----"
     user_input= gets.strip.downcase
       if user_input == "exit"
         salutation
