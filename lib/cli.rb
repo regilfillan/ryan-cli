@@ -33,7 +33,7 @@
           self.choose_podcast
         else
           oops
-          run
+          menu_loop
         end
       end
   end 
@@ -56,23 +56,29 @@
   def choose_podcast
     puts "\n\n"
     puts "Select a number from the list to learn more about the corresponding Podcast or enter 'exit' to return to menu."
-    user_input= gets.strip.to_i
-      if user_input >= 1 && user_input <= 20
-        index = user_input-1
+    puts "\n\n"
+    loop do 
+    user_input= gets.strip
+    integer_input= user_input.to_i
+      if user_input == "exit"
+        salutation
+        menu_loop
+        break
+      elsif (1..20).include?(integer_input)
+        index = integer_input-1
         podcast= Podcast.all[index]
         PodbayScraper.scrape_details(podcast)
         self.display_podcast_details(podcast)
-      elsif user_input == "exit"
-        run
       else 
         oops
-        run
+        menu_loop
       end
+    end
   end
 
   def display_podcast_details(podcast)
     puts "\n\n"
-    puts "Copy and paste the following to your URL to see the additional details:"
+    puts "Copy and paste the following to your URL to see the additional details regarding your selected podcast:"
     puts "\n"
     puts "Open their website: '#{podcast.open_website}'!"
     puts "Read their reviews: '#{podcast.read_reviews}'!"
@@ -82,9 +88,10 @@
     user_input= gets.strip.downcase
       if user_input == "exit"
         salutation
+        menu_loop
       else
         oops
-        run
+        menu_loop
       end
   end
 
