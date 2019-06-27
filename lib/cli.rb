@@ -67,7 +67,9 @@
       elsif (1..20).include?(integer_input)
         index = integer_input-1
         podcast= Podcast.all[index]
-        PodbayScraper.scrape_details(podcast)
+        if podcast.open_website == nil
+          PodbayScraper.scrape_details(podcast)
+        end
         self.display_podcast_details(podcast)
       else 
         oops

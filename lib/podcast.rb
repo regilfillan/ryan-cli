@@ -18,4 +18,8 @@ class Podcast
     @@all
   end
   
+  def self.all_alph
+     Podcast.all.sort {|a,b| a.title <=> b.title}
+  end
+  
 end
